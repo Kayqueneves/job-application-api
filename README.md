@@ -1,6 +1,6 @@
  # Job Application API
 
-API REST para gerenciamento de vagas de emprego, empresas e candidaturas.
+API REST para gerenciamento de vagas de emprego em ti, empresas e candidaturas.
 
  ## Funcionalidades
 	
