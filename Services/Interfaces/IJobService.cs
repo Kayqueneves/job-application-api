@@ -3,7 +3,7 @@ namespace JobApplicationAPI.Services.Interfaces;
 
 public interface IJobService
 {
-    public List<Job> GetAllJobs();
+    public List<Job> Search(string title, string? location, string? technology);
     public Job GetJobById(int id);
     public Job CreateJob(Job job);
     public Job UpdateJob(int id, Job job);

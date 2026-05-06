@@ -15,9 +15,10 @@ public class JobControllerController : ControllerBase
         this.JobService = jobService;
     }
     [HttpGet]
-    public ActionResult<Job> Get()
+    public ActionResult<Job> Get([FromQuery] string title, [FromQuery] string? location, [FromQuery] string? technology)
     {
-        return Ok(JobService.GetAllJobs());
+        var jobs = JobService.Search(title, location, technology);
+        return Ok(jobs);
     }
     [HttpGet("{id}")]
     public IActionResult Get(int id)

@@ -16,6 +16,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 // 🔹 Service
 builder.Services.AddScoped<IJobService, JobDatabaseService>();
+builder.Services.AddScoped<ICompanyService, CompanyDatabaseService>();
+builder.Services.AddScoped<IApplicationService, ApplicationDatabaseService>();
+builder.Services.AddScoped<IUserService, UserDatabaseService>();
 
 // 🔹 Build
 var app = builder.Build();

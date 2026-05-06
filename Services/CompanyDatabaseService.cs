@@ -48,7 +48,6 @@ public class CompanyDatabaseService : ICompanyService
         existingCompany.Name = company.Name;
         existingCompany.Location = company.Location;
         existingCompany.Description = company.Description;
-        existingCompany.Jobs = company.Jobs;
         banco.Update(existingCompany);
         banco.SaveChanges();
         return existingCompany;

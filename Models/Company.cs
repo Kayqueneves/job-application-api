@@ -7,5 +7,5 @@ public class Company
     public string Email { get; set; }
     public string Location { get; set; }
     public string Description { get; set; }
-    public List<Job> Jobs { get; set; }
+   
 }

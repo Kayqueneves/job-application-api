@@ -20,8 +20,44 @@ public class CompanyControllerController : ControllerBase
         return Ok(companyService.GetAllCompanies());
     }
     [HttpPost]
-    public ActionResult<Company> Post(Company newCompany)
+    public ActionResult<Company> Post(Company company)
     {
-        return Ok(companyService.CreateCompany(newCompany));
+        return Ok(companyService.CreateCompany(company));
+    }
+    [HttpGet("{id}")]
+    public ActionResult<Company> Get(int id)
+    {
+        var company = companyService.GetCompanyById(id);
+        if (company == null)
+        {
+            return NotFound();
+        }
+        return Ok(company);
+    }
+    [HttpPut("{id}")]
+    public ActionResult<Company> Put(int id, Company company)
+    {
+        try
+        {
+            var updatedCompany = companyService.UpdateCompany(id, company);
+            return Ok(updatedCompany);
+        }
+        catch (InvalidOperationException)
+        {
+            return NotFound();
+        }
+    }
+    [HttpDelete("{id}")]
+    public ActionResult Delete(int id)
+    {
+        try
+        {
+            companyService.DeleteCompany(id);
+            return NoContent();
+        }
+        catch (InvalidOperationException)
+        {
+            return NotFound();
+        }
     }
 }
